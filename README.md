@@ -9,7 +9,7 @@ This website contains 2 different views.
 * Admin view (create/view/modify/delete surveys)
 * User view (take survey)
 
-###### Admin View
+#### Admin View
 Admin view has further 3 features which can be viewed only after logging in. 
 Credentials :
  	username - tanima
@@ -27,7 +27,7 @@ This view is used to edit a survey(title,subtitle,instructions) or it's question
 
 Alert message will be displayed after creating/editing/deleting a survey.
 
-###### User View
+#### User View
 User can select any survey from the list of surveys. 
 Once the user starts the survey, there will be one question and its options at a time.
 Only one answer can be selected for each question. 
