@@ -1,0 +1,14 @@
+<section id="admin-create-question">
+	<div class="container"  ng-if="loggedIn">
+   		<form ng-submit="createQuestion.newQuestion()" >                       
+      		<input placeholder="Enter new question" type="text" class="form-control col-lg-8" name="questionText" ng-model="createQuestion.questionText" required="required"><br/><br/>                                    
+      		<button type="submit" class="btn button btn-primary btn-sm">Create Question</button>
+      		<br>
+      		<br>
+      		<a href="#/edit/survey/viewAll" class="btn button btn-primary btn-md"> Back </a>
+		</form>                  
+	</div>
+</section>
+
+<!-- if admin is logged out -->
+<admin-login-card></admin-login-card>

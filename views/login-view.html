@@ -1,0 +1,39 @@
+<section id="admin-page" ng-if="loggedIn">
+  <div class="row">
+    <div class="col-lg-4 text-center">
+      <a href="#/create">
+        <h3 class="section-heading text-uppercase">Create Survey</h3>
+        <h4 class="section-subheading text-muted">create a new survey</h4>
+      </a>
+    </div>
+    <div class="col-lg-4 text-center">
+      <a href="#/survey/viewAll">
+        <h3 class="section-heading text-uppercase">View Survey</h3>
+        <h4 class="section-subheading text-muted">view or delete survey/question/options/answers</h4>
+      </a>
+    </div>
+    <div class="col-lg-4 text-center">
+      <a href="#/edit/survey/viewAll">
+        <h3 class="section-heading text-uppercase">Modify Survey</h3>
+        <h4 class="section-subheading text-muted">edit survey, add survey's question/option</h4>
+      </a>
+    </div>
+  </div>
+</section>
+<br>
+ 
+<section id="login"  ng-if="!loggedIn">
+  <div class="row">
+    <form class="col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-sm-4 offset-sm-4 text-center" ng-submit="logIn(username,password);">
+      <div class="form-group">
+        <input type="text" class="form-control form-control-md text-center" placeholder="Email/Username"  ng-model="username">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control form-control-md text-center" placeholder="Password"  ng-model="password">
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary btn-lg btn-block">Sign In</button>
+      </div>
+    </form>  
+  </div>
+</section>

@@ -1,0 +1,18 @@
+<section id="admin-create-survey">
+  <div class="container" ng-if="loggedIn" >
+    <form ng-submit="createSurvey.newSurvey()" >                  
+      <input placeholder="Title of Survey" type="text" class="form-control" name="surveyTitle" ng-model="createSurvey.title" required="required"><br/><br/>
+      <input placeholder="Sub Title of Survey" type="text" class="form-control" name="surveySubTitle" ng-model="createSurvey.subtitle" required="required"><br/><br/>
+      <textarea rows="4" cols="50" class="form-control" placeholder="Instructions/Description" ng-model="createSurvey.instructions" required="required"></textarea>      
+      <br/><br/>
+      <button type="submit" class="btn button btn-primary btn-md">Create Survey</button>
+      <br>
+      <br>
+      <a href="#/login" class="btn button btn-primary btn-md"> Back </a>
+    </form>
+  </div>
+</section>
+
+<!-- if admin is logged out -->
+<admin-login-card></admin-login-card>
+  

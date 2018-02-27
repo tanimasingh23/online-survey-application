@@ -1,0 +1,47 @@
+<section id ="admin-edit-single-survey" ng-if="loggedIn">
+  <div class="container" >    
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <div class="space">     
+          <h4>{{singleSurvey.singleSurvey.surveyTitle}}</h4>
+          <h5>{{singleSurvey.singleSurvey.surveySubtitle}}</h5>
+          <p><strong>Instructions : </strong>{{singleSurvey.singleSurvey.instructions}}</p>
+           <a ng-href="#/edit/{{singleSurvey.singleSurvey.surveyId}}" class="btn button btn-primary btn-sm">Edit Survey</a>
+          <a ng-href="#/createQuestion/{{singleSurvey.singleSurvey.surveyId}}" class="btn button btn-primary btn-sm">Add Question</a>
+        </div>         
+      </div> 
+      <div class="col-lg-12">
+        <div ng-repeat = "question in singleSurvey.singleSurveyQuestions" ng-init= "id = $index">
+          <strong>Q{{id+1}}. {{question.questionText}} </strong>
+          <input type="button" name="editQuestion" class="btn btn-light html-entity" 
+                ng-click="singleSurvey.showQuestionForm(question.questionId, question.questionText, id)"
+                title="Edit Question" value="&#x270E;">
+          <form class="form-group" ng-if="singleSurvey.showQuestionInput[id] === true" ng-submit="singleSurvey.updateQuestion(question.questionId, question.questionText, id)">
+            <input type="text" class="form-control" placeholder="Enter question" ng-model='question.questionText' required="required">
+            <br>
+            <input type="submit" class="btn button btn-info" value="Submit">
+          </form>
+          
+          <div ng-repeat = "option in question.questionOptions track by $index" ng-init="id = $index">
+            <p>{{id+1}}. {{option}}</p>
+          </div>
+          <div>
+            <form ng-submit="singleSurvey.createOption(question.questionId,id)">
+              <input type="text" class="form-control col-lg-8" placeholder="Enter new option" ng-model='singleSurvey.option[id]' required="required">
+              <br>
+              <input type="submit" class="btn button btn-primary btn-sm" value="Submit" ng-show="singleSurvey.option[id]">
+            </form>
+          </div> 
+          <hr> 
+        </div>
+      </div>        
+    </div>
+    <br>
+    <a href="#/edit/survey/viewAll" class="btn button btn-primary btn-md"> Back </a>     
+  </div>   
+</section>
+
+<!-- if admin is logged out -->
+<admin-login-card></admin-login-card>
+
+ 

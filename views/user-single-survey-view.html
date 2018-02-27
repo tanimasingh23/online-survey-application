@@ -1,0 +1,37 @@
+<section id ="user-single-survey">
+	<div class="container">
+		<div class="row">	
+			<div class="col-lg-12">
+				<h3 class="text-center text-uppercase">{{userSurvey.singleSurvey.surveyTitle}}</h3>
+				<h4 class="text-center text-uppercase">{{userSurvey.singleSurvey.surveySubtitle}}</h4>
+				<p class="text-center"><strong >Instructions : </strong>{{userSurvey.singleSurvey.instructions}}</p>
+				<div ng-if="userSurvey.startButton  && userSurvey.allQuestions.length" class="text-center">
+					<input type="button" name="Start-survey" class="btn button btn-primary btn-sm" value="Start Survey" ng-click="userSurvey.startSurvey()">
+				</div>
+				
+				<div ng-if="userSurvey.question && userSurvey.showSurvey" >
+					<div class= "card space">
+						<p><strong>Q. {{userSurvey.question.questionText}}</strong> </p>
+						<div ng-repeat=" option in userSurvey.question.questionOptions track by $index" ng-init="id=$index">
+							<input type ="radio" name="options" value="{{id}}" ng-model="userSurvey.answer" ng-change="userSurvey.changeNextValue();"> <span> {{option}} </span>
+						</div>
+					</div>
+					<br>
+					<div>
+						<button class="btn button btn-primary" ng-click="userSurvey.loadNextQuestion(userSurvey.question.questionId);" ng-disabled="userSurvey.enableNext">{{userSurvey.buttonValue}}</button>
+						<button class="btn button btn-primary" ng-click="userSurvey.skipQuestion(userSurvey.question.questionId);">SKIP
+						</button>
+					</div>					
+				</div>
+				<div ng-if="!userSurvey.question && userSurvey.allQuestions.length && userSurvey.showSurvey" class="text-center"><h4>Thank you for taking the time to complete our survey.</h4><h5>Have a nice day!</h5></div>
+				
+				<div ng-if="!userSurvey.allQuestions.length" class="text-center"> 
+					<h4>Oops! This survey is still under construction.</h4>
+					<h5>Please take some other survey.</h5>
+				</div>				
+			</div>
+		</div>
+		<br>
+		<a href="#/takeSurvey" class="btn button btn-primary btn-sm"> Back </a>			   
+	</div>
+</section>

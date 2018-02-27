@@ -1,0 +1,31 @@
+<section id ="admin-all-survey-view"  ng-if="loggedIn">
+  <div class="container" >
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1>List of surveys</h1>
+        <br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-6" ng-repeat="survey in allSurvey.surveys" ng-init="id=$index">
+        <div class="card text-center space">
+          <a ng-href="#/survey/{{survey.surveyId}}">       
+            <h4> {{survey.surveyTitle }}</h4>
+          </a>
+          <h5> {{survey.surveySubtitle}}</h5> 
+          <div>
+             <a ng-click="allSurvey.deleteSurvey(survey.surveyId, id);"><button class="btn button btn-primary btn-sm">Delete</button></a>
+          </div> 
+        </div>                           
+      </div> 
+      <br>   
+    </div>
+    <br>
+    <a href="#/login" class="btn button btn-primary btn-md"> Back </a>   
+  </div>   
+  <br>    
+</section>
+
+<!-- if admin is logged out -->
+<admin-login-card></admin-login-card>
+
